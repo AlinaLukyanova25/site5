@@ -1,0 +1,277 @@
+@import 'vars';
+@import 'mixins';
+
+@media (max-width: 1362px) {
+    .container {
+        padding-left: 33px;
+        padding-right: 32px;
+    }
+
+    .new-artifacts__content {
+        flex-direction: column;
+    }
+
+    .new-artifacts__content-right {
+        max-width: 100%;
+    }
+
+}
+
+@media (max-width: 900px) {
+    .header {
+        &__container {
+            flex-wrap: wrap;
+            row-gap: 20px;
+        }
+
+        &__nav {
+            order: 1;
+            width: 100%;
+        }
+
+        &__form {
+            margin-left: auto;
+        }
+
+        &__list {
+            justify-content: space-between;
+        }
+
+    }
+}
+
+@media (max-width: 767px) {
+
+    .header {
+        position: relative;
+
+        &__nav {
+            display: flex;
+            position: absolute;
+            left: 0;
+            bottom: -40px;
+            padding-left: 33px;
+            padding-right: 32px;
+        }
+
+        &__list {
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+    }
+
+    .hero {
+        padding-top: 69px;
+        padding-bottom: 30px;
+
+        &__title {
+            margin-bottom: 30px;
+            font-size: 48px;
+            line-height: 48px;
+        }
+
+        &__descr {
+            display: none;
+        }
+    }
+
+    .new-artifacts__image {
+        padding: 16px;
+    }
+
+    .help {
+        &__descr {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .header {
+        padding-top: 17px;
+        padding-bottom: 13px;
+        &__container {
+            flex-wrap: nowrap;
+        }
+
+        &__logo {
+            margin: 0;
+        }
+
+        &__nav {
+            overflow: auto;
+            scrollbar-width: none;
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        &__list {
+            gap: 10px 32px;
+            justify-content: start;
+        }
+
+        &__form {
+            margin-right: 32px;
+        }
+
+        &__btn-search,
+        &__btn-login {
+            width: 24px;
+        }
+
+    }
+
+    .hero {
+        background-image: $image-gradient, url(../img/hero-image-320.webp);
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        display: none;
+    }
+
+    .gallery {
+        padding-bottom: 23px;
+
+        &__slider {
+            margin-bottom: 0;
+        }
+
+        &__card-title {
+            margin-bottom: 15px;
+        }
+
+        &__pagination {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+    }
+
+    .feedback {
+        &__input {
+            width: 100%;
+        }
+    }
+
+    .new-artifacts {
+        padding-bottom: 32px;
+
+        &__content-left picture {
+            position: relative;
+            display: block;
+            height: 493px;
+            overflow-x: scroll;
+            scrollbar-width: none;
+        }
+
+        &__image {
+            min-width: 800px;
+            display: block;
+            padding: 0;
+        }
+
+        &__hint {
+            display: block;
+        } 
+
+        &__content-right {
+            min-height: 493px;
+            padding-bottom: 22px;
+        }
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .header {
+        &__link {
+            @include hover-primary-green;
+        }
+
+        &__btn-search,
+        &__btn-login {
+            @include hover-stroke;
+        }
+    }
+
+    .hero {
+        &__link {
+            &:hover {
+                color: $green-hover;
+                fill: $green-hover;
+            }
+
+            &:hover svg {
+                transform: scaleX(1.2);
+                transform-origin: left;
+            }
+        }
+    }
+
+    .gallery {
+        &__card-btn {
+            @include hover-link-btn;
+        }
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        svg {
+            @include hover-fill;
+        }
+    }
+
+    .swiper-button-prev:hover svg {
+        transform: scaleX(1.2);
+        transform-origin: right;
+    }
+
+    .swiper-button-next:hover svg {
+        transform: scaleX(1.2);
+        transform-origin: left;
+    }
+
+    .new-artifacts {
+        &__content-link {
+            &:hover {
+                color: $green-active;
+                fill: $green-active;
+            }
+
+            &:hover svg {
+                transform: scaleX(1.2);
+                transform-origin: left;
+            }
+        }
+    }
+
+    .feedback {
+        &__input {
+            &:hover {
+                background-color: $grey;
+            }
+
+            &:hover::placeholder {
+                color: $white;
+            }
+
+            &:focus-visible {
+                outline: 1px solid $green-focus;
+                outline-offset: 2px;
+            }
+        }
+
+        &__button {
+            @include hover-button;
+        }
+    }
+
+
+    .footer {
+        &__socials-link {
+            @include hover-fill;
+        }
+    }
+}

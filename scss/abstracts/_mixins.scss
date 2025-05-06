@@ -1,0 +1,135 @@
+@mixin visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+}
+
+@mixin section-title {
+    font-family: $font-heading;
+    font-size: 48px;
+    font-style: italic;
+    line-height: 100%;
+    font-weight: $bold;
+}
+
+@mixin svg-arrow {
+    margin-left: 8px;
+    width: 44px;
+    height: 15px;
+}
+
+// States
+
+@mixin disabled-arrow {
+    &[aria-disabled="true"] {
+        color: $grey;
+        fill: $grey;
+        pointer-events: none;
+    }
+}
+
+@mixin hover-primary-green {
+    &:hover {
+        color: $primary-green;
+    }
+}
+
+@mixin hover-stroke {
+    &:hover {
+        stroke: $green-hover;
+    }
+}
+
+@mixin hover-fill {
+    &:hover {
+        fill: $primary-green;
+    }
+}
+
+@mixin hover-button {
+    &:hover{
+        background-color: $green-hover;
+    }
+}
+
+@mixin hover-link-btn {
+    &:hover{
+        color: $dark-shade;
+        background-color: $primary-green;
+    }
+}
+
+@mixin active-color {
+    &:active {
+        color: $green-active;
+    }
+}
+
+@mixin active-stroke {
+    &:active {
+        stroke: $green-active;
+    }
+}
+
+@mixin active-fill {
+    &:active {
+        fill: $green-active;
+    }
+}
+
+@mixin active-button {
+    &:active {
+        background-color: $green-active;
+    }
+}
+
+@mixin active-link-btn {
+    &:active {
+        border-color: $green-active;
+        color: $dark-shade;
+        background-color: $green-active;
+    }
+}
+
+// Transition
+
+@mixin transition-color {
+    transition-property: color;
+    transition-duration: $small-duration;
+    transition-timing-function: ease;
+}
+
+@mixin transition-stroke {
+    transition-property: stroke;
+    transition-duration: $small-duration;
+    transition-timing-function: ease;
+}
+
+@mixin transition-fill {
+    transition-property: fill;
+    transition-duration: $small-duration;
+    transition-timing-function: ease;
+}
+
+@mixin transition-bakg-color {
+    transition-property: background-color;
+    transition-duration: $small-duration;
+    transition-timing-function: ease;
+}
+
+@mixin transition-bakg-and-color {
+    transition-property: background-color, color, border-color;
+    transition-duration: $small-duration;
+    transition-timing-function: ease;
+}
+
+@mixin transition-color-and-fill {
+    transition-property: color, fill;
+    transition-duration: $small-duration;
+    transition-timing-function: ease;
+}
