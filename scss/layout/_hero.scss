@@ -1,0 +1,116 @@
+@import '../abstracts/vars';
+@import '../abstracts/mixins';
+
+.hero {
+    padding: 115px 0;
+    background-image: linear-gradient(rgba(29, 47, 48, 0.7), rgba(29, 47, 48, 0.7)), url(../img/hero-image.webp);
+    background-color: $dark;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+     &__content {
+        max-width: 688px;
+        color: $white;
+     }
+
+     &__title {
+        margin-bottom: 22px;
+        font-family: $font-heading;
+        font-size: 60px;
+        line-height: 60px;
+        font-weight: $bold;
+     }
+
+     &__descr {
+        margin-bottom: 24px;
+        max-width: 625px;
+     }
+
+     &__link {
+        position: relative;
+        color: $primary-green;
+        display: flex;
+        align-items: center;
+        fill: $primary-green;
+        width: max-content;
+        outline: none;
+        font-weight: $bold;
+        @include transition-color-and-fill;
+
+        svg {
+         @include svg-arrow;
+         transition-property: transform, transform-origin;
+         transition-duration: $small-duration;
+         transition-timing-function: ease;
+        }
+
+      &::before {
+         content: "";
+         position: absolute;
+         top: -4px;
+         left: -4px;
+         right: -4px;
+         bottom: -4px;
+         border: 1px solid $green-focus;
+         opacity: 0;
+         transition: opacity $small-duration ease;
+     }
+
+     &:focus-visible::before {
+         opacity: 1;
+     }
+
+     &:active {
+      color: $green-active;
+      fill: $green-active;
+      } 
+
+      &:active svg {
+         transform: scaleX(1);
+         transform-origin: left;
+        }
+   
+     @include disabled-arrow;
+
+     }
+}
+
+@media (max-width: 767px) {
+   .hero {
+      padding-top: 69px;
+      padding-bottom: 30px;
+
+      &__title {
+          margin-bottom: 30px;
+          font-size: 48px;
+          line-height: 48px;
+      }
+
+      &__descr {
+          display: none;
+      }
+  }
+}
+
+@media (max-width: 576px) {
+   .hero {
+      background-image: $image-gradient, url(../img/hero-image-320.webp);
+  }
+}
+
+@media (min-width: 1024px) {
+   .hero {
+      &__link {
+          &:hover {
+              color: $green-hover;
+              fill: $green-hover;
+          }
+
+          &:hover svg {
+              transform: scaleX(1.2);
+              transform-origin: left;
+          }
+      }
+  }
+}
